@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST</title>
+    <script src="https://kit.fontawesome.com/f30fac2c61.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-image: url(https://wallpapers.com/images/hd/abstract-pastel-color-background-049d25drs8qgnxyn.jpg);
+    }
+    .container{
+        height: 500px;
+        width: 400px;
+        position: relative;
+        background-color: white;
+        left: 560px;
+        top: 120px;
+        border-radius: 50px;
+    }
+    h2{
+        position: absolute;
+        left: 45px;
+        top: 50px;
+        font-size: 40px;
+    }
+    img.logo{
+        position: relative;
+        height: 80px;
+        left: 280px;
+        top: 18px;
+    }
+    .inputs{
+        position: relative;
+        left: 30px;
+        top: 10px;
+        height: 40px;
+        width: 90%;
+    }
+    #inputbox{
+        position: absolute;
+        left: 20px;
+        top: 30px;
+        height: 40px;
+        width: 80%;
+        border-radius: 30px;
+    }
+    button{
+        background-color: red;
+        color: black;
+        position: absolute;
+        border-radius: 30px;
+        height: 43px;
+        width: 20%;
+        top: 30px;
+        left: 250px;
+        cursor: pointer;
+        border: none;
+    }
+    .text ul{
+        position: relative;
+        background-color: black;
+        color: white;
+        text-align: left;
+        font-size: 19px;
+        left: 40px;
+        padding: 8px;
+        top: 60px;
+        width: 73%;
+        margin: 10px;
+        border-radius: 30px;
+    }
+    .text ul i{
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+    }
+    @media only screen and (max-width:700px){
+        *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-image: url(https://wallpapers.com/images/hd/abstract-pastel-color-background-049d25drs8qgnxyn.jpg);
+    }
+    .container{
+        height: 400px;
+        width: 350px;
+        position: relative;
+        background-color: white;
+        left: 38px;
+        top: 160px;
+        border-radius: 50px;
+    }
+    h2{
+        position: absolute;
+        left: 65px;
+        top: 40px;
+        font-size: 32px;
+    }
+    img.logo{
+        position: relative;
+        height: 60px;
+        left: 250px;
+        top: 18px;
+    }
+    .inputs{
+        position: relative;
+        left: 30px;
+        top: 20px;
+        height: 50px;
+        width: 90%;
+    }
+    #inputbox{
+        position: absolute;
+        left: 20px;
+        top: 30px;
+        height: 50px;
+        width: 80%;
+        border-radius: 30px;
+    }
+    button{
+        background-color: red;
+        color: black;
+        position: absolute;
+        border-radius: 30px;
+        height: 52px;
+        width: 20%;
+        top: 31px;
+        left: 220px;
+        cursor: pointer;
+        border: none;
+    }
+    .text ul{
+        position: relative;
+        background-color: black;
+        color: white;
+        text-align: left;
+        font-size: 19px;
+        left: 40px;
+        padding: 8px;
+        top: 60px;
+        width: 70%;
+        margin: 10px;
+        border-radius: 30px;
+    }
+    .text ul i{
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+    }
+    }
+</style>
+<body>
+   <div class="container">
+       <h2>TO DO LIST</h2>
+       <img class="logo" src="https://cdn3d.iconscout.com/3d/premium/thumb/to-do-list-9422286-7703036.png">
+       <div class="inputs">
+        <input id="inputbox" type="text" placeholder="Add your text">
+        <button onclick="ADD()">Add</button>
+       </div>
+       <div class="text">
+
+       </div>
+   </div>
+   <script>
+    let inputs = document.getElementById("inputbox");
+    let text = document.querySelector(".text");
+
+    function ADD(){
+       if(inputs.value==""){
+       alert("Please Enter Task");
+       }
+       else{
+           let newEle = document.createElement("ul");
+           newEle.innerHTML=`${inputs.value}<i class="fa-solid fa-trash"></i>`;
+           text.appendChild(newEle);
+           inputs.value="";
+           newEle.querySelector("i").addEventListener("click" , remove);
+           function remove(){
+            newEle.remove()
+           }
+       }
+    }
+</script>
+</body>
+</html>
